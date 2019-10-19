@@ -16,7 +16,7 @@ class MediaTableViewCell: UITableViewCell {
   let mediaImageView: UIImageView = {
     let imageView = UIImageView(frame: CGRect.zero)
     imageView.contentMode = .scaleAspectFit
-    imageView.backgroundColor = UIColor.lightGray
+    imageView.backgroundColor = UIColor.black
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.clipsToBounds = true
     return imageView

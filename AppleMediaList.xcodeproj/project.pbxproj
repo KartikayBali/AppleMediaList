@@ -19,6 +19,8 @@
 		29909CBF235A92CB0059C98F /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909CBE235A92CB0059C98F /* Media.swift */; };
 		29909CC1235A94C10059C98F /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909CC0235A94C10059C98F /* Feed.swift */; };
 		29909CC7235AC9EB0059C98F /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909CC6235AC9EB0059C98F /* MediaTableViewCell.swift */; };
+		29909CC9235AE67F0059C98F /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909CC8235AE67F0059C98F /* UserDataManager.swift */; };
+		29909CCB235AF1AB0059C98F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909CCA235AF1AB0059C98F /* FilterViewController.swift */; };
 		430440977C9170BBB6CEC85F /* Pods_AppleMediaList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79B07122FA279DB2485B843 /* Pods_AppleMediaList.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		29909CBE235A92CB0059C98F /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		29909CC0235A94C10059C98F /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		29909CC6235AC9EB0059C98F /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
+		29909CC8235AE67F0059C98F /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		29909CCA235AF1AB0059C98F /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C79B07122FA279DB2485B843 /* Pods_AppleMediaList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMediaList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8979E00D1EE594E0F8CA71E /* Pods-AppleMediaList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMediaList.debug.xcconfig"; path = "Target Support Files/Pods-AppleMediaList/Pods-AppleMediaList.debug.xcconfig"; sourceTree = "<group>"; };
 		EC021A94955B1F79D4ED42B2 /* Pods-AppleMediaList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMediaList.release.xcconfig"; path = "Target Support Files/Pods-AppleMediaList/Pods-AppleMediaList.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				29909CB6235A89DD0059C98F /* HomeViewController.swift */,
+				29909CCA235AF1AB0059C98F /* FilterViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			children = (
 				29909CB9235A8DD00059C98F /* APIManager.swift */,
 				29909CBB235A90AB0059C98F /* ActivityIndicatorManager.swift */,
+				29909CC8235AE67F0059C98F /* UserDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -274,8 +280,10 @@
 			files = (
 				29909CBC235A90AB0059C98F /* ActivityIndicatorManager.swift in Sources */,
 				29909CC1235A94C10059C98F /* Feed.swift in Sources */,
+				29909CC9235AE67F0059C98F /* UserDataManager.swift in Sources */,
 				29909CA0235A85B30059C98F /* AppDelegate.swift in Sources */,
 				29909CBF235A92CB0059C98F /* Media.swift in Sources */,
+				29909CCB235AF1AB0059C98F /* FilterViewController.swift in Sources */,
 				29909CC7235AC9EB0059C98F /* MediaTableViewCell.swift in Sources */,
 				29909CA2235A85B30059C98F /* SceneDelegate.swift in Sources */,
 				29909CBA235A8DD00059C98F /* APIManager.swift in Sources */,

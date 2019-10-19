@@ -41,7 +41,9 @@ class HomeViewController: UIViewController {
   }
   
   @objc private func filterButtonTapped(_ button: UIBarButtonItem) {
-    
+    let filterViewController = FilterViewController()
+    filterViewController.delegate = self
+    navigationController?.pushViewController(filterViewController, animated: true)
   }
   
   private func setupTableView() {
@@ -50,11 +52,6 @@ class HomeViewController: UIViewController {
     tableView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(tableView)
     
-//    tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-//    tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-//    tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-//    tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-            
     NSLayoutConstraint.activate([
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -99,5 +96,17 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+}
+
+extension HomeViewController: FilterViewControllerDelegate {
+  func didSavedFilterSettings() {
+    navigationController?.popViewController(animated: true)
+    
+    fetchData()
   }
 }
