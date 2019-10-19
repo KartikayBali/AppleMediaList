@@ -19,9 +19,11 @@ class HomeViewController: UIViewController {
     }
   }
   
+  // MARK: - Lifecycle
   override func loadView() {
     super.loadView()
     
+    setupNavigationBarStyle()
     setupNavigationBar()
     setupTableView()
     registerTableViewCell()
@@ -31,6 +33,12 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     
     fetchData()
+  }
+  
+  // MARK: - Private Methods
+  private func setupNavigationBarStyle() {
+    navigationController?.navigationBar.barTintColor = UIColor.white
+    self.navigationController?.navigationBar.isTranslucent = true
   }
   
   private func setupNavigationBar() {
@@ -65,9 +73,9 @@ class HomeViewController: UIViewController {
   }
   
   private func fetchData() {
-//    ActivityIndicatorManager.shared.show()
+    ActivityIndicatorManager.shared.show()
     APIManager.fetchData { (result, error) in
-//      ActivityIndicatorManager.shared.dismiss()
+      ActivityIndicatorManager.shared.dismiss()
       if let errorMessage = error {
         print(errorMessage)
         return
@@ -80,6 +88,7 @@ class HomeViewController: UIViewController {
   }
 }
 
+// MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return feed.items.count
@@ -93,16 +102,23 @@ extension HomeViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 100
+    return MediaTableViewCell.CellHeight
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    
+    let media = feed.items[indexPath.row]
+    guard let url = URL(string: media.url) else { return }
+    
+    UIApplication.shared.open(url, options: [:], completionHandler: nil)
   }
 }
 
+// MARK: - FilterViewControllerDelegate
 extension HomeViewController: FilterViewControllerDelegate {
   func didSavedFilterSettings() {
     navigationController?.popViewController(animated: true)

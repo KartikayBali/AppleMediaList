@@ -31,6 +31,7 @@ class FilterViewController: UIViewController {
   
   weak var delegate: FilterViewControllerDelegate?
   
+  // MARK: - Lifecycle
   override func loadView() {
     super.loadView()
     
@@ -39,6 +40,7 @@ class FilterViewController: UIViewController {
     registerTableViewCell()
   }
   
+  // MARK: - Private Methods
   private func setupNavigationBar() {
     navigationItem.title = "Filter"
     
@@ -92,6 +94,7 @@ class FilterViewController: UIViewController {
   }
 }
 
+// MARK: - UITableViewDataSource
 extension FilterViewController: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return sections.count
@@ -139,6 +142,7 @@ extension FilterViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - UITableViewDelegate
 extension FilterViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
@@ -164,7 +168,7 @@ extension FilterViewController: UITableViewDelegate {
         actionViewController.addAction(action)
       }
     } else if sections[indexPath.section] == .ResultsLimit {
-      for page in [10, 20, 50, 100] {
+      for page in UserDataManager.resultPagesCount {
         let action = UIAlertAction(title: "\(page)", style: .default) { (_) in
           self.resultsLimit = page
           self.tableView.reloadSections([indexPath.section], with: .automatic)

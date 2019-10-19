@@ -8,6 +8,6 @@ target 'AppleMediaList' do
   # Pods for AppleMediaList
   pod 'Alamofire'
   pod 'SDWebImage'
-  pod 'SVProgressHUD'
+  pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
 
 end

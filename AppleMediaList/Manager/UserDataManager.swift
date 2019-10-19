@@ -63,6 +63,8 @@ enum FeedType: String {
 class UserDataManager {
   static let shared = UserDataManager()
   
+  static let resultPagesCount = [10, 20, 50, 100]
+  
   var mediaType = MediaType.AllMediaTypes[0]
   var feedType = FeedType.FeedTypeInfo[MediaType.AllMediaTypes[0]]![0]
   let genre = "all"

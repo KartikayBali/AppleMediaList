@@ -12,12 +12,12 @@ import SVProgressHUD
 class ActivityIndicatorManager {
   static let shared: ActivityIndicatorManager = {
     let instance = ActivityIndicatorManager()
-//    SVProgressHUD.setDefaultStyle(.custom)
-//    SVProgressHUD.setBackgroundLayerColor(UIColor.clear)
-//    SVProgressHUD.setBackgroundColor(UIColor.clear)
-//    SVProgressHUD.setForegroundColor(UIColor.lightGray)
-//    SVProgressHUD.setRingThickness(3.0)
-//    SVProgressHUD.setRingRadius(6.0)
+    SVProgressHUD.setDefaultStyle(.custom)
+    SVProgressHUD.setBackgroundLayerColor(UIColor.clear)
+    SVProgressHUD.setBackgroundColor(UIColor.clear)
+    SVProgressHUD.setForegroundColor(UIColor.lightGray)
+    SVProgressHUD.setRingThickness(3.0)
+    SVProgressHUD.setRingRadius(6.0)
     return instance
   }()
   
@@ -27,10 +27,6 @@ class ActivityIndicatorManager {
   }
   
   func dismiss() {
-    DispatchQueue.global(qos: .default).async {
-      DispatchQueue.main.async {
-        SVProgressHUD.dismiss()
-      }
-    }
+    SVProgressHUD.dismiss()
   }
 }

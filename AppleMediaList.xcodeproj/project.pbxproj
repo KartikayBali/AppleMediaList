@@ -430,6 +430,7 @@
 				DEVELOPMENT_TEAM = TCNAFL4L48;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AppleMediaList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,6 +452,7 @@
 				DEVELOPMENT_TEAM = TCNAFL4L48;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AppleMediaList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
