@@ -13,6 +13,7 @@ class MediaTableViewCell: UITableViewCell {
   
   static let CellIdentifier = "MediaTableViewCellIdentifier"
   static let CellHeight: CGFloat = 100
+  static let Inset: CGFloat = 10
   
   let mediaImageView: UIImageView = {
     let imageView = UIImageView(frame: CGRect.zero)
@@ -26,8 +27,8 @@ class MediaTableViewCell: UITableViewCell {
   
   let titleLabel: UILabel = {
     let label = UILabel(frame: .zero)
-    label.font = UIFont.systemFont(ofSize: 18)
-    label.numberOfLines = 2
+    label.font = UIFont.systemFont(ofSize: 16)
+    label.numberOfLines = 3
     label.translatesAutoresizingMaskIntoConstraints = false
     label.clipsToBounds = true
     return label
@@ -35,7 +36,7 @@ class MediaTableViewCell: UITableViewCell {
   
   let subTitleLabel: UILabel = {
     let label = UILabel(frame: .zero)
-    label.font = UIFont.systemFont(ofSize: 14)
+    label.font = UIFont.systemFont(ofSize: 12)
     label.translatesAutoresizingMaskIntoConstraints = false
     label.clipsToBounds = true
     return label
@@ -69,17 +70,17 @@ class MediaTableViewCell: UITableViewCell {
   
   private func getImageViewConstraints() -> [NSLayoutConstraint] {
     return [
-      mediaImageView.widthAnchor.constraint(equalToConstant: type(of: self).CellHeight - 20),
-      mediaImageView.heightAnchor.constraint(equalToConstant: type(of: self).CellHeight - 20),
-      mediaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+      mediaImageView.widthAnchor.constraint(equalToConstant: type(of: self).CellHeight - 2 * type(of: self).Inset),
+      mediaImageView.heightAnchor.constraint(equalToConstant: type(of: self).CellHeight - 2 * type(of: self).Inset),
+      mediaImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: type(of: self).Inset),
       mediaImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
     ]
   }
   
   private func getTitleLabelConstraints() -> [NSLayoutConstraint] {
     return [
-      titleLabel.leadingAnchor.constraint(equalTo: mediaImageView.trailingAnchor, constant: 20),
-      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+      titleLabel.leadingAnchor.constraint(equalTo: mediaImageView.trailingAnchor, constant: type(of: self).Inset),
+      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -1 * type(of: self).Inset),
       titleLabel.topAnchor.constraint(equalTo: mediaImageView.topAnchor)
     ]
   }
@@ -88,7 +89,6 @@ class MediaTableViewCell: UITableViewCell {
     return [
       subTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
       subTitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-      subTitleLabel.topAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor, constant: 10),
       subTitleLabel.bottomAnchor.constraint(equalTo: mediaImageView.bottomAnchor)
     ]
   }

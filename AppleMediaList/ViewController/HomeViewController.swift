@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
   
   var feed = Feed(data: [:]) {
     didSet {
+      navigationItem.title = feed.title
       tableView.reloadData()
     }
   }
@@ -23,7 +24,6 @@ class HomeViewController: UIViewController {
   override func loadView() {
     super.loadView()
     
-    setupNavigationBarStyle()
     setupNavigationBar()
     setupTableView()
     registerTableViewCell()
@@ -36,13 +36,9 @@ class HomeViewController: UIViewController {
   }
   
   // MARK: - Private Methods
-  private func setupNavigationBarStyle() {
-    navigationController?.navigationBar.barTintColor = UIColor.white
-    self.navigationController?.navigationBar.isTranslucent = true
-  }
-  
   private func setupNavigationBar() {
-    navigationItem.title = "Home"
+    navigationController?.navigationBar.barTintColor = UIColor.white
+    navigationController?.navigationBar.isTranslucent = true
     
     let rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .done, target: self, action: #selector(filterButtonTapped(_:)))
     navigationItem.rightBarButtonItem = rightBarButtonItem
